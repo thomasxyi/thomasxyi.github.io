@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /img/
+Disallow: /content/
+Disallow: *.jpg
+Disallow: *.pdf
