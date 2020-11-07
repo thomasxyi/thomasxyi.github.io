@@ -9,24 +9,24 @@
   <meta name="author" content="">
 
   <title>
-    🥰🥰🥰
-    < /title>
+    💕💕💕💕💕💕💕💕💕💕💕💕💕💕
+  </title>
 
-      <!-- Bootstrap core CSS -->
-      <!-- Latest compiled and minified CSS -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <!-- Bootstrap core CSS -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
-      <!-- Custom styles for this template -->
-      <link href="style.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="style.css" rel="stylesheet">
 
-      <!-- Custom fonts for this template -->
-      <link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
-      <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
-      <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-      <link rel="icon" type="image/png" href="img/favicon.ico">
+  <!-- Custom fonts for this template -->
+  <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <link rel="icon" type="image/png" href="img/favicon.ico">
 
-      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-      <!--[if lt IE 9]>
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
@@ -60,23 +60,20 @@
 
       <div class="cover-container">
         <div class="inner cover">
-          <h1 class="cover-heading">Classic Cover</h1>
+          <h1 class="cover-heading">Iris & Tom</h1>
+          <h2>
+            <span>🥰 Day</span>
+            <span id="date"></span>
+            <span>🥰</span>
+          </h2>
           <script type="text/javascript">
-            var start = new Date().setFullYear(2020, 10, 16);
-            var now = Date();
-            var diff = (Date.parse(now) - Date.parse(start)) / 1000;
-            var g = Math.floor(diff / (3600 * 24));
-            diff = diff % (3600 * 24);
-            var b = Math.floor(diff / 3600);
-            if (b < 10) {
-              b = "0" + b
-            }
-            f = f % 3600;
-            $("#elapseClock").html(a);
+            // Lmao JS uses 0-11 index for months
+            var start = new Date(2020, 08, 16);
+            var now = new Date();
+            var diff = now.getTime() - start.getTime();
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            document.getElementById("date").innerHTML = days;
           </script>
-          <p id="messages">
-            宝宝, 今天是我们的第
-          <div id="elapseClock"></div>
           </p>
           <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add video from YouTube to make it your own.</p>
           <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add video from YouTube to make it your own.</p>
@@ -103,7 +100,7 @@
   </div>
 
   <!-- jQuery -->
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
