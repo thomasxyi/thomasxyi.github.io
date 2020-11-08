@@ -84,7 +84,7 @@
           .then(resp => {
             document.getElementById("location").innerHTML = resp.name;
             document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
-            document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&nbsp;&#8451;";
+            document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&#8451;";
           });
 
         function determineWeatherCondition(str) {
@@ -113,11 +113,10 @@
         <div class="inner cover">
           <h1 class="cover-heading">🥰 Iris & Tom 🥰</h1>
           <h1>
-            <span>Day</span>
-            <span id="date" />
+            <span id="date" style="font-family: Bank Gothic, monospace" />
           </h1>
           <div className="block-text">
-            <h2 id="time" />
+            <h2 id="time" style="font-family: Bank Gothic, monospace" />
           </div>
           <div id="daily"></div>
           <p id="daily_desc">
@@ -132,7 +131,7 @@
           var now = new Date();
           var diff = now.getTime() - start.getTime();
           var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          document.getElementById("date").innerHTML = days;
+          document.getElementById("date").innerHTML = "Day " + days;
 
           setTime();
           setInterval(() => {
@@ -156,11 +155,11 @@
               min = "0" + min;
             }
 
-            var colon = "&nbsp";
+            var colon = "&nbsp;";
             if (time.getSeconds() % 2 == 0) {
               colon = ":";
             }
-            document.getElementById("time").innerHTML = `${hr} ${colon} ${min} ${ampm}`;
+            document.getElementById("time").innerHTML = `${hr}${colon}${min} ${ampm}`;
           }
         </script>
       </div>
