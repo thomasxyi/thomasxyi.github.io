@@ -179,7 +179,8 @@ video {
 }
 
 .blur {
-  filter: blur(4px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 /*
