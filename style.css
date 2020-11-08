@@ -112,6 +112,15 @@ body {
 
 /* VIDEO BACKGROUND */
 
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
 .video-background {
   z-index:550;
   text-align:center;

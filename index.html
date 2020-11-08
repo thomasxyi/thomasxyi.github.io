@@ -39,10 +39,21 @@
 
 <body>
   <div class="site-wrapper video-background">
-    <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=2Gg6Seob5Mg', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, }"></a>
-
+    <video autoplay muted loop src="" id="vid"></video>
+    <script>
+      var now = new Date();
+      var hours = now.getHours();
+      if (hours >= 0 && hours <= 5) {
+        document.getElementById("vid").src = "dawn.mp4";
+      } else if (hours >= 6 && hours <= 11) {
+        document.getElementById("vid").src = "hearts.mp4";
+      } else if (hours >= 12 && hours <= 17) {
+        document.getElementById("vid").src = "day.mp4";
+      } else if (hours >= 18 && hours <= 24) {
+        document.getElementById("vid").src = "night.mp4";
+      }
+    </script>
     <div class="overlay"></div>
-
     <div class="site-wrapper-inner">
       <div class="masthead clearfix">
         <div class="inner">
@@ -53,6 +64,7 @@
                   <h1>
                     <p id="weatheri" />&nbsp;<span id="weather" />
                     <span id="temperature"></span>
+                    &nbsp;
                   </h1>
                 </div>
                 <h5 id="location" />
@@ -67,7 +79,6 @@
           .then(resp => {
             document.getElementById("location").innerHTML = resp.name;
             document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
-            console.log(document.getElementById("weatheri").className);
             document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&#8451;";
           });
 
@@ -95,12 +106,16 @@
 
       <div class="cover-container">
         <div class="inner cover">
-          <h1 class="cover-heading">Iris & Tom</h1>
-          <h2>
-            <span>🥰 Day</span>
-            <span id="date"></span>
-            <span>🥰</span>
-          </h2>
+          <h1 class="cover-heading">🥰 Iris & Tom 🥰</h1>
+          <h1>
+            <span>Day</span>
+            <span id="date" />
+            <!-- TODO Random Pic Bank with hashing for duplicate detection -->
+            <!-- Display day and caption -->
+          </h1>
+          <div className="block-text">
+            <h2 id="time" />
+          </div>
           <script type="text/javascript">
             // Lmao JS uses 0-11 index for months
             var start = new Date(2020, 08, 16);
@@ -108,6 +123,32 @@
             var diff = now.getTime() - start.getTime();
             var days = Math.floor(diff / (1000 * 60 * 60 * 24));
             document.getElementById("date").innerHTML = days;
+
+            setTime();
+            setInterval(() => {
+              setTime();
+            }, 1000);
+
+            function setTime() {
+              var time = new Date();
+              var hr = time.getHours();
+              var min = time.getMinutes();
+
+              var ampm = "AM";
+              if (hr > 12) {
+                ampm = "PM";
+                hr -= 12;
+              }
+              if (min < 10) {
+                min = "0" + min;
+              }
+
+              var colon = "&nbsp";
+              if (time.getSeconds() % 2 == 0) {
+                colon = ":";
+              }
+              document.getElementById("time").innerHTML = `${hr} ${colon} ${min} ${ampm}`;
+            }
           </script>
         </div>
       </div>
