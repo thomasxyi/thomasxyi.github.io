@@ -159,7 +159,7 @@ video {
 }
 
 .video-background-default-image {
-  background:url(img/cover.jpg);
+  background:url(https://source.unsplash.com/2560x1600/daily?travel);
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
