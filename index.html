@@ -145,6 +145,9 @@
             var min = time.getMinutes();
 
             var ampm = "AM";
+            if (hr == 0) {
+              hr = 12;
+            }
             if (hr > 12) {
               ampm = "PM";
               hr -= 12;
