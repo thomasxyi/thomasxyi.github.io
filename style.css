@@ -159,7 +159,7 @@ video {
 }
 
 .video-background-default-image {
-  background:url(https://source.unsplash.com/2560x1600/daily?interiors);
+  background:url(https://source.unsplash.com/2560x1600/daily?travel);
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
@@ -179,8 +179,8 @@ video {
 }
 
 .blur {
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
 }
 
 /*
