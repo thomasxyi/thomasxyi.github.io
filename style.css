@@ -192,7 +192,7 @@ video {
 
 .cover-heading {
   font-family: "Great Vibes", serif;
-  font-size: 60px;
+  font-size: 50px;
   transform: rotate(-6deg);
   -ms-transform: rotate(-6deg);
   -moz-transform: rotate(-6deg);
@@ -232,7 +232,7 @@ small {
   }
 
   .cover-heading {
-    font-size: 100px;
+    font-size: 80px;
   }
 }
 
