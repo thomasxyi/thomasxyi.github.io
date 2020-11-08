@@ -77,7 +77,7 @@
         </div>
       </div>
       <script>
-        fetch("http://api.openweathermap.org/data/2.5/weather?id=6122085&appid=206451a80a04fd83a77bb7420b49d2e3")
+        fetch("https://api.openweathermap.org/data/2.5/weather?id=6122085&appid=206451a80a04fd83a77bb7420b49d2e3")
           .then(resp => resp.json())
           .then(resp => {
             document.getElementById("location").innerHTML = resp.name;
