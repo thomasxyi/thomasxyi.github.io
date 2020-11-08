@@ -118,12 +118,19 @@
           <div className="block-text">
             <h2 id="time" style="font-family: Bank Gothic, monospace" />
           </div>
-          <div id="daily"></div>
-          <p id="daily_desc">
+          <br />
+          <h2 style="font-family: Bank Gothic, monospace">🎁</h2>
+          <div>
+            <img id="daily" />
+            <p id="dailydesc" />
+          </div>
         </div>
         <script type="text/javascript">
-          // static list of number to description
-          // Pick random number
+          var pics = ['0.jpg'];
+          var desc = ['呵呵'];
+          const rand = Math.floor(Math.random() * pics.length);
+          document.getElementById("daily").src = `daily/${pics[rand]}`;
+          document.getElementById("dailydesc").innerHTML = desc[rand];
         </script>
         <script type="text/javascript">
           // Lmao JS uses 0-11 index for months
