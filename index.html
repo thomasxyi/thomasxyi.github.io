@@ -39,25 +39,23 @@
 
 <body>
   <div class="site-wrapper video-background">
-    <video preload autoplay muted loop src="" id="vid"></video>
-    <!-- <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=2Gg6Seob5Mg', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, }"></a> -->
+    <a id="bgndVideo" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=2Gg6Seob5Mg', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, }"></a>
     <script>
       var now = new Date();
       var hours = now.getHours();
+      var vid = "";
       if (hours >= 0 && hours <= 5) {
-        document.getElementById("vid").src = "dawn.mp4";
-        "https://www.youtube.com/watch?v=p8X8ZIBUjXw"
+        vid = "https://www.youtube.com/watch?v=p8X8ZIBUjXw";
       } else if (hours >= 6 && hours <= 11) {
-        document.getElementById("vid").src = "hearts.mp4";
-        "https://www.youtube.com/watch?v=e-pwHao2Cdk"
+        vid = "https://www.youtube.com/watch?v=e-pwHao2Cdk";
       } else if (hours >= 12 && hours <= 17) {
-        document.getElementById("vid").src = "day.mp4";
-        "https://www.youtube.com/watch?v=2XX5zDThC3U"
+        vid = "https://www.youtube.com/watch?v=2XX5zDThC3U";
       } else if (hours >= 18 && hours <= 24) {
-        document.getElementById("vid").src = "night.mp4";
-        "https://www.youtube.com/watch?v=2Gg6Seob5Mg"
+        vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
       }
+      document.getElementById("bgndVideo").setAttribute("data-property", `{videoURL:'${vid}', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, }`);
     </script>
+
     <div class="overlay"></div>
     <div class="site-wrapper-inner">
       <div class="masthead clearfix">
@@ -84,7 +82,7 @@
           .then(resp => {
             document.getElementById("location").innerHTML = resp.name;
             document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
-            document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&#8451;";
+            document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&nbsp;&#8451;";
           });
 
         function determineWeatherCondition(str) {
