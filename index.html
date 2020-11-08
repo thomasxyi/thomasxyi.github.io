@@ -77,38 +77,14 @@
         </div>
       </div>
       <script>
-        if (navigator.geolocation) {
-          var location_timeout = setTimeout("geolocFail()", 10000);
-
-          navigator.geolocation.getCurrentPosition(function(position) {
-            clearTimeout(location_timeout);
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=206451a80a04fd83a77bb7420b49d2e3`)
-              .then(resp => resp.json())
-              .then(resp => {
-                document.getElementById("location").innerHTML = resp.name;
-                document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
-                document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&nbsp;&#8451;";
-              });
-          }, function(error) {
-            clearTimeout(location_timeout);
-            geoLocFail();
+        // Richmond
+        fetch("https://api.openweathermap.org/data/2.5/weather?id=6122085&appid=206451a80a04fd83a77bb7420b49d2e3")
+          .then(resp => resp.json())
+          .then(resp => {
+            document.getElementById("location").innerHTML = resp.name;
+            document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
+            document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&nbsp;&#8451;";
           });
-        } else {
-          geoLocFail();
-        }
-
-        function geoLocFail() {
-          // Richmond
-          fetch("https://api.openweathermap.org/data/2.5/weather?id=6122085&appid=206451a80a04fd83a77bb7420b49d2e3")
-            .then(resp => resp.json())
-            .then(resp => {
-              document.getElementById("location").innerHTML = resp.name;
-              document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
-              document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&nbsp;&#8451;";
-            });
-        }
 
         function determineWeatherCondition(str) {
           switch (str) {

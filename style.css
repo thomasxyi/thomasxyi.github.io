@@ -159,10 +159,11 @@ video {
 }
 
 .video-background-default-image {
-  background:url(https://source.unsplash.com/2560x1600/daily?travel);
+  background:url(https://source.unsplash.com/2560x1600/daily?interiors);
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
+  filter: blur(3px);
   width:100%;
   height:100%;
   z-index:0;
