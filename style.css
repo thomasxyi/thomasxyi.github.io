@@ -178,6 +178,10 @@ video {
   left:0;
 }
 
+.blur {
+  backdrop-filter: blur(2px);
+}
+
 /*
  * Cover
  */
