@@ -168,7 +168,7 @@ video {
 }
 
 .video-background-default-image {
-  background:url(https://source.unsplash.com/random?travel);
+  background:url(https://source.unsplash.com/random?travel,interiors);
   background-repeat:no-repeat;
   background-position:center center;
   background-size:cover;
