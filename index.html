@@ -66,7 +66,7 @@
               <div className="text-right top-right weather" margin=>
                 <div>
                   <h1>
-                    <p id="weatheri" />&nbsp;<span id="weather" />
+                    <p id="weatheri" /><span id="weather" />
                     <span id="temperature"></span>
                     &nbsp;
                   </h1>
@@ -88,21 +88,32 @@
           });
 
         function determineWeatherCondition(str) {
+          var now = new Date();
+          var hours = now.getHours();
+          var icon = 'night-alt';
+          if (hours < 18 && hours > 5) {
+            icon = 'day';
+          }
           switch (str) {
             case 'Rain':
-              return 'wi-day-rain';
+              return `wi-${icon}-rain`;
             case 'Thunderstorm':
-              return 'wi-day-thunderstorm';
+              return `wi-${icon}-thunderstorm`;
             case 'Drizzle':
-              return 'wi-day-showers';
+              return `wi-${icon}-showers`;
             case 'Extreme':
-              return 'wi-day-snow-thunderstorm';
+              return `wi-${icon}-snow-thunderstorm`;
             case 'Snow':
-              return 'wi-day-snow';
+              return `wi-${icon}-snow`;
             case 'Clouds':
-              return 'wi-day-cloudy';
-            case 'Clear':
-              return 'wi-day-sunny';
+              return `wi-${icon}-cloudy`;
+            case 'Clear': {
+              if (icon == 'day') {
+                return `wi-day-sunny`;
+              } else {
+                return `wi-stars`;
+              }
+            }
             default:
               return null;
           }
