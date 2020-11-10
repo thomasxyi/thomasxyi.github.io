@@ -44,14 +44,14 @@
       var now = new Date();
       var hours = now.getHours();
       var vid = "";
-      if (hours >= 0 && hours <= 5) {
-        vid = "https://www.youtube.com/watch?v=p8X8ZIBUjXw";
-      } else if (hours >= 6 && hours <= 11) {
-        vid = "https://www.youtube.com/watch?v=e-pwHao2Cdk";
-      } else if (hours >= 12 && hours <= 17) {
-        vid = "https://www.youtube.com/watch?v=2XX5zDThC3U";
-      } else if (hours >= 18 && hours <= 24) {
+      if (hours >= 0 && hours <= 6) {
         vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
+      } else if (hours >= 7 && hours <= 16) {
+        vid = "https://www.youtube.com/watch?v=2XX5zDThC3U";
+      } else if (hours >= 17 && hours <= 19) {
+        vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
+      } else if (hours >= 20 && hours <= 24) {
+        vid = "https://www.youtube.com/watch?v=qv8cwzlYqW8";
       }
       document.getElementById("bgndVideo").setAttribute("data-property", `{videoURL:'${vid}', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, }`);
     </script>
