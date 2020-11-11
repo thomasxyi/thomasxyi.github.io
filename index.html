@@ -49,7 +49,7 @@
     <div class="overlay"></div>
     <!-- Weather Bar -->
     <div class="site-wrapper-inner">
-      <div class="masthead clearfix">
+      <div class="masthead clearfix" onclick="dailyclose()">
         <div class="inner">
           <nav>
             <ul class="nav masthead-nav">
@@ -132,7 +132,7 @@
             </h3>
           </div>
         </div>
-        <!-- Content Selection -->
+        <!-- Button Behavior -->
         <script type="text/javascript">
           function daily() {
             var x = document.getElementById("daily");
@@ -143,9 +143,19 @@
             } else {
               x.style.display = "none";
               b.innerHTML = "🎁";
+              dailyrand();
             }
           }
+
+          function dailyclose() {
+            var x = document.getElementById("daily");
+            var b = document.getElementById("dailyb");
+            x.style.display = "none";
+            b.innerHTML = "🎁";
+            dailyrand();
+          }
         </script>
+        <!-- Content Selection -->
         <script type="text/javascript">
           const desc = [
             '🙃🙃🙃', // 0
@@ -380,9 +390,13 @@
             '可怕', // 229
             '霸道女神', // 230
           ];
-          const rand = Math.floor(Math.random() * desc.length);
-          document.getElementById("dailypic").src = `daily/${rand}.jpg`;
-          document.getElementById("dailydesc").innerHTML = desc[rand];
+          dailyrand();
+
+          function dailyrand() {
+            const rand = Math.floor(Math.random() * desc.length);
+            document.getElementById("dailypic").src = `daily/${rand}.jpg`;
+            document.getElementById("dailydesc").innerHTML = desc[rand];
+          }
         </script>
         <!-- Clock -->
         <script type="text/javascript">
