@@ -78,8 +78,8 @@
           });
 
         function determineWeatherCondition(str) {
-          var now = new Date();
-          var hours = now.getHours();
+          const now = new Date();
+          const hours = now.getHours();
           var icon = 'night-alt';
           if (hours < 18 && hours > 5) {
             icon = 'day';
@@ -147,7 +147,7 @@
           }
         </script>
         <script type="text/javascript">
-          var desc = [
+          const desc = [
             '🙃🙃🙃', // 0
             '小可爱！', // 1
             '宝宝的甜甜圈', // 2
@@ -398,7 +398,7 @@
           }, 1000);
 
           function setTime() {
-            var time = new Date();
+            const time = new Date();
             var hr = time.getHours();
             var min = time.getMinutes();
             var ampm = "AM";
