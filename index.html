@@ -75,30 +75,45 @@
           .then(resp => resp.json())
           .then(resp => {
             document.getElementById("location").innerHTML = resp.name;
-            document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0].main)}`;
+            document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0])}`;
             document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&#8451;";
           });
 
-        function determineWeatherCondition(str) {
+        function determineWeatherCondition(weather) {
           const now = new Date();
           const hours = now.getHours();
-          var icon = 'night-alt';
-          if (hours < 18 && hours > 5) {
+          var icon = 'night';
+          var alticon = 'night-alt';
+          // Daytime
+          if (hours <= 17 && hours >= 7) {
             icon = 'day';
+            alticon = 'day';
           }
-          switch (str) {
-            case 'Rain':
+          const cond = weather.main;
+          const id = weather.id;
+          switch (cond) {
+            case 'Rain': {
+              // Light Rain
+              if (id === 500) {
+                return `wi-${alticon}-rain`;
+              }
               return 'wi-rain';
+            }
             case 'Thunderstorm':
               return `wi-thunderstorm`;
             case 'Drizzle':
-              return 'wi-showers';
+              return `wi-${alticon}-rain`;
             case 'Extreme':
-              return `wi-${icon}-snow-thunderstorm`;
+              return `wi-${alticon}-snow-thunderstorm`;
             case 'Snow':
-              return `wi-${icon}-snow`;
-            case 'Clouds':
+              return `wi-${alticon}-snow`;
+            case 'Clouds': {
+              // Partly Cloudy
+              if (id === 801 || id === 802) {
+                return `wi-${icon}cloudy`;
+              }
               return `wi-cloudy`;
+            }
             case 'Mist':
               return `wi-fog`;
             case 'Clear': {
@@ -109,6 +124,13 @@
               }
             }
             default:
+              if (id === 711) {
+                return `wi-smoke`;
+              } else if (id === 721) {
+                return `wi-day-haze`;
+              } else if (id === 731) {
+                return `wi-${icon}-fog`;
+              }
               return null;
           }
         }
