@@ -148,47 +148,14 @@
           <div>
             <h3 id="dailydesc" style="font-family: Bank Gothic, monospace">
               宝宝圣诞节快乐喔<br /><br />
-              ✨ 点一根蜡烛<br /><br />
-              🦩 摸摸小脑袋<br /><br />
-              🎶 听一听音乐<br /><br />
-              然后记得我永远都爱你
+              ✨ 点一根小蜡烛<br /><br />
+              🦩 摸摸小脑袋瓜<br /><br />
+              🎶 放松听会音乐<br /><br />
+              然后记住我永远爱你<br /><br />
+              - 你的小兔兔 🐰
             </h3>
           </div>
         </div>
-        <!-- Clock -->
-        <script type="text/javascript">
-          // JS uses 0-11 index for months
-          var start = new Date(2020, 08, 16);
-          var now = new Date();
-          var diff = now.getTime() - start.getTime();
-          var days = Math.floor(diff / (1000 * 60 * 60 * 24));
-          setTime();
-          setInterval(() => {
-            setTime();
-          }, 1000);
-
-          function setTime() {
-            const time = new Date();
-            var hr = time.getHours();
-            var min = time.getMinutes();
-            var ampm = "AM";
-            if (hr == 0) {
-              hr = 12;
-            }
-            if (hr > 12) {
-              ampm = "PM";
-              hr -= 12;
-            }
-            if (min < 10) {
-              min = "0" + min;
-            }
-            var colon = "&nbsp;";
-            if (time.getSeconds() % 2 == 0) {
-              colon = ":";
-            }
-            document.getElementById("time").innerHTML = `${hr}${colon}${min} ${ampm}`;
-          }
-        </script>
       </div>
     </div>
   </div>
