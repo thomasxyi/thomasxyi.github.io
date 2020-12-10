@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    💕💕💕💕💕💕💕💕💕💕💕💕💕💕
+  </title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css" integrity="sha256-huyMLXBzKbUp+a2DHlEUmuJSmc2SQZiu/jbpELjYGSE=" crossorigin="anonymous" />
+  <!-- Custom styles -->
+  <link href="style.css" rel="stylesheet">
+  <link href="weather-icons.css" rel="stylesheet">
+  <link href="weather-icons.min.css" rel="stylesheet">
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.ico">
+  <!-- Video -->
+  <div class="site-wrapper video-background">
+    <a id="bgndVideo" class="player" data-property="{videoURL:'', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, showControls: false,}"></a>
+    <!-- Video Selection -->
+    <script>
+      var now = new Date();
+      var hours = now.getHours();
+      var vid = "";
+      if (hours >= 0 && hours <= 4) {
+        vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
+      } else if (hours >= 5 && hours <= 10) {
+        vid = "https://www.youtube.com/watch?v=4AA4qYGunr4";
+      } else if (hours >= 11 && hours <= 16) {
+        vid = "https://www.youtube.com/watch?v=2XX5zDThC3U";
+      } else if (hours >= 17 && hours <= 19) {
+        vid = "https://www.youtube.com/watch?v=qv8cwzlYqW8";
+      } else if (hours >= 20 && hours <= 24) {
+        vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
+      }
+      document.getElementById("bgndVideo").setAttribute("data-property", `{videoURL:'${vid}', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1,showControls: false, }`);
+    </script>
+    <!-- Blur Overlay -->
+    <div class="overlay"></div>
+    <!-- Weather Bar -->
+    <div class="site-wrapper-inner">
+      <div class="masthead clearfix" onclick="dailyclose()">
+        <div class="inner">
+          <nav>
+            <ul class="nav masthead-nav">
+              <div className="text-right top-right weather" margin=>
+                <div>
+                  <h1>
+                    <p id="weatheri" /><span id="weather" />
+                    <span id="temperature"></span>
+                    &nbsp;
+                  </h1>
+                </div>
+                <h5 id="location" />
+              </div>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- Weather Fetcher -->
+      <script>
+        fetch("https://api.openweathermap.org/data/2.5/weather?id=6122085&appid=206451a80a04fd83a77bb7420b49d2e3")
+          .then(resp => resp.json())
+          .then(resp => {
+            document.getElementById("location").innerHTML = resp.name;
+            document.getElementById("weatheri").className = `wi ${determineWeatherCondition(resp.weather[0])}`;
+            document.getElementById("temperature").innerHTML = Math.round(resp.main.temp - 273.15) + "&#8451;";
+          });
+
+        function determineWeatherCondition(weather) {
+          const now = new Date();
+          const hours = now.getHours();
+          var icon = 'night';
+          var alticon = 'night-alt';
+          // Daytime
+          if (hours <= 17 && hours >= 7) {
+            icon = 'day';
+            alticon = 'day';
+          }
+          const cond = weather.main;
+          const id = weather.id;
+          switch (cond) {
+            case 'Rain': {
+              // Light Rain
+              if (id === 500) {
+                return `wi-${alticon}-rain`;
+              }
+              return 'wi-rain';
+            }
+            case 'Thunderstorm':
+              return `wi-thunderstorm`;
+            case 'Drizzle':
+              return `wi-${alticon}-rain`;
+            case 'Extreme':
+              return `wi-${alticon}-snow-thunderstorm`;
+            case 'Snow':
+              return `wi-${alticon}-snow`;
+            case 'Clouds': {
+              // Partly Cloudy
+              if (id === 801 || id === 802) {
+                return `wi-${alticon}-cloudy`;
+              }
+              return `wi-cloudy`;
+            }
+            case 'Mist':
+              return `wi-fog`;
+            case 'Clear': {
+              if (icon == 'day') {
+                return `wi-day-sunny`;
+              } else {
+                return `wi-stars`;
+              }
+            }
+            default:
+              if (id === 711) {
+                return `wi-smoke`;
+              } else if (id === 721) {
+                return `wi-day-haze`;
+              } else if (id === 731) {
+                return `wi-${icon}-fog`;
+              }
+              return null;
+          }
+        }
+      </script>
+      <!-- Content -->
+      <div class="cover-container">
+        <div class="inner cover">
+          <br />
+          <a href="https://irisgao.ca">
+            <h1 class="cover-heading">🥰 Iris & Tom 🥰</h1>
+          </a>
+          <h2>
+            <span style="font-family: Bank Gothic, monospace">Christmas 2020</span>
+          </h2>
+          <div>
+            <h3 id="dailydesc" style="font-family: Bank Gothic, monospace">
+              宝宝圣诞节快乐喔<br /><br />
+              ✨ 点一根蜡烛<br /><br />
+              🦩 摸摸小脑袋<br /><br />
+              🎶 听一听音乐<br /><br />
+              然后记得我永远都爱你
+            </h3>
+          </div>
+        </div>
+        <!-- Clock -->
+        <script type="text/javascript">
+          // JS uses 0-11 index for months
+          var start = new Date(2020, 08, 16);
+          var now = new Date();
+          var diff = now.getTime() - start.getTime();
+          var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          setTime();
+          setInterval(() => {
+            setTime();
+          }, 1000);
+
+          function setTime() {
+            const time = new Date();
+            var hr = time.getHours();
+            var min = time.getMinutes();
+            var ampm = "AM";
+            if (hr == 0) {
+              hr = 12;
+            }
+            if (hr > 12) {
+              ampm = "PM";
+              hr -= 12;
+            }
+            if (min < 10) {
+              min = "0" + min;
+            }
+            var colon = "&nbsp;";
+            if (time.getSeconds() % 2 == 0) {
+              colon = ":";
+            }
+            document.getElementById("time").innerHTML = `${hr}${colon}${min} ${ampm}`;
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <!-- JS -->
+  <script src="js/device.min.js"></script>
+  <script src="js/jquery.mb.YTPlayer.js"></script>
+  <script src="js/custom.js"></script>
+  </body>
+
+</html>
