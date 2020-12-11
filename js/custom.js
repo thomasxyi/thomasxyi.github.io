@@ -21,6 +21,7 @@
     } else {
       //jQuery will add the default background to the preferred class
       $('.video-background').addClass('video-background-default-image');
+      $('.video-background-xmas').addClass('video-background-default-image-xmas');
       $('.overlay').addClass('blur');
     }
   });

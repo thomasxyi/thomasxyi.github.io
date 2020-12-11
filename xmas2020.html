@@ -27,24 +27,13 @@
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/favicon.ico">
   <!-- Video -->
-  <div class="site-wrapper video-background">
+  <div class="site-wrapper video-background-xmas">
     <a id="bgndVideo" class="player" data-property="{videoURL:'', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, showControls: false,}"></a>
     <!-- Video Selection -->
     <script>
       var now = new Date();
       var hours = now.getHours();
-      var vid = "";
-      if (hours >= 0 && hours <= 4) {
-        vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
-      } else if (hours >= 5 && hours <= 10) {
-        vid = "https://www.youtube.com/watch?v=4AA4qYGunr4";
-      } else if (hours >= 11 && hours <= 16) {
-        vid = "https://www.youtube.com/watch?v=2XX5zDThC3U";
-      } else if (hours >= 17 && hours <= 19) {
-        vid = "https://www.youtube.com/watch?v=qv8cwzlYqW8";
-      } else if (hours >= 20 && hours <= 24) {
-        vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
-      }
+      var vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
       document.getElementById("bgndVideo").setAttribute("data-property", `{videoURL:'${vid}', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1,showControls: false, }`);
     </script>
     <!-- Blur Overlay -->
@@ -68,9 +57,9 @@
           <div>
             <h3 id="dailydesc" style="font-family: Bank Gothic, monospace">
               宝宝，圣诞节快乐喔<br /><br />
+              ☕ 喝杯热巧克力<br /><br />
               ✨ 点一根小蜡烛<br /><br />
               🦩 摸摸小脑袋瓜<br /><br />
-              🎶 闭上眼听音乐<br /><br />
               然后记住我永远爱你<br /><br />
               - 你的小兔兔 🐰
             </h3>
