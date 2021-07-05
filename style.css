@@ -198,6 +198,17 @@ video {
   backface-visibility:hidden
 }
 
+.video-background-default-image-ppt {
+  background:url(img/ppt.jpg);
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  width:100%;
+  height:100%;
+  z-index:0;
+  backface-visibility:hidden
+}
+
 .overlay {
   background: rgba(0, 0, 0, 0.4);
   width:100%;

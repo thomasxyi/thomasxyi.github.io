@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>
+    💕💕💕💕💕💕💕💕💕💕💕💕💕💕
+  </title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons-wind.min.css" integrity="sha256-huyMLXBzKbUp+a2DHlEUmuJSmc2SQZiu/jbpELjYGSE=" crossorigin="anonymous" />
+  <!-- Custom styles -->
+  <link href="style.css" rel="stylesheet">
+  <link href="weather-icons.css" rel="stylesheet">
+  <link href="weather-icons.min.css" rel="stylesheet">
+  <!-- Custom fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/favicon.ico">
+  <!-- Video -->
+  <div class="site-wrapper video-background-ppt">
+    <a id="bgndVideo" class="player" data-property="{videoURL:'', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1, showControls: false,}"></a>
+    <!-- Video Selection -->
+    <script>
+      var now = new Date();
+      var hours = now.getHours();
+      var vid = "https://www.youtube.com/watch?v=2Gg6Seob5Mg";
+      document.getElementById("bgndVideo").setAttribute("data-property", `{videoURL:'${vid}', containment:'body', autoPlay:true, mute:true, startAt:1, opacity:1,showControls: false, }`);
+    </script>
+    <!-- Blur Overlay -->
+    <div class="overlay"></div>
+    <!-- Weather Bar -->
+    <div class="site-wrapper-inner">
+      <div class="masthead clearfix" onclick="dailyclose()">
+      </div>
+      <!-- Content -->
+      <div class="cover-container">
+        <div class="inner cover">
+          <br />
+          <br />
+          <br />
+            <h1 class="cover-heading"> 💻 Our Relationship 💻</h1>
+          <div>
+            <div id="content" style="font-family: Bank Gothic, monospace">
+              <h3><br /><br /><br />
+              <br /><br /><br />
+			  Ultra-Modern Relationship Problems and Their Respective Solutions
+			  <br /><br /><br />
+			  Presented By: Baby Yi
+              <br /><br /><br /></h3>
+            </div>
+          <h1 style="font-family: Bank Gothic, monospace">
+            <button id="back" style="display:none" onclick="back()">🐰</button>
+            <text id="page" style="display:none">1</text>
+            <button id="next" onclick="next()">🐷</button>
+          </h1>
+			
+        <!-- Button Behavior -->
+        <script type="text/javascript">
+			function next() {
+				handle(true)
+			}
+			function back() {
+				handle(false);
+			}
+		  
+			function handle(nextBool) {
+				var page = document.getElementById("page");
+				var back = document.getElementById("back");
+				var next = document.getElementById("next");
+				var content = document.getElementById("content");
+				// Page Num Tracking
+				if (nextBool) {
+					page.textContent = parseInt(page.textContent) + 1;
+				} else {
+					page.textContent = parseInt(page.textContent) - 1;
+				}
+				// Content Display
+				if (page.textContent == "1") {
+					back.style.display = "none";
+					page.style.display = "none"
+				} else {
+					back.style.display = "inline";
+					page.style.display = "inline";
+				}
+				// Actual Content
+				if (page.textContent == "1") {
+					content.innerHTML="<br /><br /><br /><br /><br /><br />" +
+					"<h3>Ultra-Modern Relationship Problems and Their Respective Solutions<br /><br />" +
+					"Presented By: Baby Yi"+
+					"<br /><br /><br /></h3>";
+				} else if (page.textContent == "2") {
+					content.innerHTML="<br /><br /><br /><br /><br /><br />" +
+					"<h2>First of all...</h2>"+
+					"<br /><br /><img src =ppt/sorry.jpg /><br /><br />" +
+					"I shouldn't have let my emotions get out of hand and say things without thinking<br /><br />" +
+					"I hurt you and I'm truly sorry<br /><br />" +
+					"This includes all the emotional vomit and hypocritical and selfish decisions" +
+					"<br /><br /><br /></h3>";
+				} else if (page.textContent == "3") {
+					content.innerHTML="";
+
+				} else if (page.textContent == "4") {
+					content.innerHTML="";
+
+				} else if (page.textContent == "5") {
+					content.innerHTML="";
+
+				}
+			}
+        </script>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <!-- JS -->
+  <script src="js/device.min.js"></script>
+  <script src="js/jquery.mb.YTPlayer.js"></script>
+  <script src="js/custom.js"></script>
+  </body>
+
+</html>
